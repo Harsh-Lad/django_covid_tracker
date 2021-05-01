@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'qv5wr8eb4zq*xw*9-4+woejn2fi18)f+8!7^m-4i1thoqj)b+g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','django-covid19-tracker.herokuapp.com']
 
