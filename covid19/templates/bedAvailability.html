@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block title %} Bed Tracker {% endblock title %}
+
+{% block css %}
+
+        .searchField input{
+            width: 97vw;
+            margin: auto;
+            padding:10px;
+
+        }
+
+        .searchField:focus{
+          border:none
+        }
+
+        .card-img-top{
+            width: 286px;
+            height: 286px;
+            object-fit: contain;
+        }
+
+
+    {% endblock css %}
+{% block body %}
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mb-3">
+      <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for state or districts">
+    </div>
+  </div>
+  <div class="d-flex flex-wrap" id="myItems">
+      <div class="card m-2" style="width: 18rem;">
+            <img src="https://img.saurenergy.com/2017/04/Chhattisgarh-Solar-Energy-Policy.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">Chhattisgarh </h5>
+              <a href="/chhattisgarh" class="btn btn-primary w-100">Check  Availability</a>
+            </div>
+        </div>
+
+            <div class="card m-2" style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzrC6wxP8qaq9PMykk1Ci32rXWa-AYfnh8WA&usqp=CAU" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">Navi Mumbai</h5>
+              <a href="/naviMumbai" class="btn btn-primary w-100">Check  Availability</a>
+            </div>
+        </div>
+
+            <div class="card m-2" style="width: 18rem;">
+            <img src="https://i.pinimg.com/originals/63/46/17/63461720d34dd04c9c41df9e141989bc.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">Pune </h5>
+              <a href="/pune" class="btn btn-primary w-100">Check  Availability</a>
+            </div>
+        </div>
+      
+            <div class="card m-2" style="width: 18rem;">
+            <img src="https://lh3.googleusercontent.com/proxy/YAM3fwBtRL0el8Gx1yTwJmEoOJx9EzUziAAcCv5uSJvE-SsUWlaAwE3Ylj78Z17RO6nfCh69ySd2gjXSpyGRQkWetp7sC0GXN2RLRtGJ4EtEwS2WOTmHbPpe7Esi968koPfZhkesUUUz6Hf-4y2xhV2nxKgEfscK1-cZVLwXxoC-eyKEE3Q" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">Uttar Pradesh</h5>
+              <a href="/uttarPradesh" class="btn btn-primary w-100">Check  Availability</a>
+            </div>
+        </div>
+      
+            <div class="card m-2" style="width: 18rem;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Uttarakhand_Divisions_Map.png/450px-Uttarakhand_Divisions_Map.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">Uttarakhand</h5>
+              <a href="/uttarakhand" class="btn btn-primary w-100">Check  Availability</a>
+            </div>
+        </div>
+      
+            <div class="card m-2" style="width: 18rem;">
+            <img src="https://www.whatsoninnewdelhi.com/wp-content/uploads/2018/07/DelhiMap.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">Delhi </h5>
+              <a href="/delhi " class="btn btn-primary w-100">Check  Availability</a>
+            </div>
+        </div>
+          
+   
+  </div>
+</div>
+
+
+
+{% endblock body %}
+
+{% block js %}
+    <script>
+        function myFunction() {
+            var input, filter, cards, cardContainer, h5, title, i;
+            input = document.getElementById("myFilter");
+            filter = input.value.toUpperCase();
+            cardContainer = document.getElementById("myItems");
+            cards = cardContainer.getElementsByClassName("card m-2");
+            for (i = 0; i < cards.length; i++) {
+                title = cards[i].querySelector(".card-body h5.card-title");
+                if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+{% endblock js %}

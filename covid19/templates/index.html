@@ -1,25 +1,12 @@
+{% extends 'base.html' %}
 {% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block title %}Covid Tracker - Homepage{% endblock title %}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="icon" type="image" href="{% static 'covid.ico' %}">
-    <title>Covid Tracker</title>
-
-    <style>
+    {% block css %}
         body{
             overflow-x: hidden;
         }
-        .searchField input{
-            width: 90vw;
-            margin: auto;
 
-        }
         .footer-copyright{
             color: whitesmoke;
         }
@@ -28,162 +15,203 @@
             text-decoration: none;
             color: whitesmoke !important;
         }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Covid Tracker</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Contact</a>
-              </li>
-            </ul>
-          </div> -->
-        </div>
-      </nav>
 
-    <div class="container-fluid my-4 d-flex flex-wrap justify-content-center" >
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              New Cases Globally
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.NewConfirmed}}</li>
-            </ul>
-        </div>
-                
-        <!-- Total Global Comfirmed section -->
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              Total Global Cases
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.TotalConfirmed}}</li>
-            </ul>
-        </div>
-                
-        <!--New Global Deaths section -->
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              New Global Deaths
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.NewDeaths}}</li>
-            </ul>
-        </div>
-        
-        <!-- Total Global Deaths section -->
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              Total Global Deaths
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.TotalDeaths}}</li>
-            </ul>
-        </div>
-
-        <!-- New recovered section -->
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              Newly Recovered Globally
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.NewRecovered}}</li>
-            </ul>
-        </div>
-
-        <!-- total recovered section -->
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              Total Global Recovery
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.TotalRecovered}}</li>
-            </ul>
-        </div>
-
-
-        <!-- countries section starts here -->
-        <div class="searchField col-12 d-flex justify-content-center" >
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Countries..">
-        </div>        
-        <table class="table table-striped table-hover" id="myTable">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Country</th>
-                <th scope="col">Total Confirmed</th>
-                <th scope="col">Total Death</th>
-                <th scope="col">Total Recovery</th>
-              </tr>
-            </thead>
-            <tbody>
-                {% for i in countries %}
-              <tr>
-                <th scope="row">{{forloop.counter}}</th>
-                <td>{{i.Country}}</td>
-                <td>{{i.TotalConfirmed}}</td>
-                <td>{{i.TotalDeaths}}</td>
-                <td>{{i.TotalRecovered}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-
-    </div>
-
-<!-- Footer -->
-<footer class="page-footer font-small bg-dark">
-
-
-  <div class="footer-copyright text-center py-3" >© 2020 Copyright:
-    <a href="https://www.instagram.com/yaarteracoder/"> Harsh Lad</a>
-  </div>
-
-
-</footer>
-<!-- Footer -->
-
-
-
-
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-
-    <script>
-        function myFunction() {
-          // Declare variables
-          var input, filter, table, tr, td, i, txtValue;
-          input = document.getElementById("myInput");
-          filter = input.value.toUpperCase();
-          table = document.getElementById("myTable");
-          tr = table.getElementsByTagName("tr");
-        
-          // Loop through all table rows, and hide those who don't match the search query
-          for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-              txtValue = td.textContent || td.innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-              } else {
-                tr[i].style.display = "none";
-              }
-            }
-          }
+        .mt-10{
+            margin-top:10rem;
         }
-        </script>
 
-  </body>
-</html>
+        .mb-10{
+            margin-bottom:10rem;
+        }
+        
+        .text-center{
+            font-weight:300;
+        }
+
+    {% endblock css %}
+
+
+    {% block body %}
+    <div class="alert alert-danger" role="alert">
+        <marquee behavior="" direction="">
+            COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.
+        </marquee>
+    </div>
+    <section class="">
+        <div class="img-div d-flex justify-content-center">
+            <img src="{% static '/logo.png' %}" class="img-fluid mx-auto" alt="...">
+        </div>
+        <div class="container-fluid my-4 d-flex flex-wrap justify-content-center" >
+            <div class="card mb-4 mx-2 border-danger"  style="width: 18rem;">
+                <div class="card-header text-danger">
+                New Cases Globally
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item text-danger">{{globalData.NewConfirmed}}</li>
+                </ul>
+            </div>
+                    
+            <!-- Total Global Comfirmed section -->
+            <div class="card mb-4 mx-2 border-danger"  style="width: 18rem;">
+                <div class="card-header text-danger">
+                Total Global Cases
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item text-danger">{{globalData.TotalConfirmed}}</li>
+                </ul>
+            </div>
+                    
+            <!--New Global Deaths section -->
+            <div class="card mb-4 mx-2 border-warning"  style="width: 18rem;">
+                <div class="card-header text-warning">
+                New Global Deaths
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item text-warning">{{globalData.NewDeaths}}</li>
+                </ul>
+            </div>
+            
+            <!-- Total Global Deaths section -->
+            <div class="card mb-4 mx-2 border-warning"  style="width: 18rem;">
+                <div class="card-header text-warning">
+                Total Global Deaths
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item text-warning">{{globalData.TotalDeaths}}</li>
+                </ul>
+            </div>
+
+            <!-- New recovered section -->
+            <div class="card mb-4 mx-2 border-success"  style="width: 18rem;">
+                <div class="card-header text-success">
+                Newly Recovered Globally
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item text-success">{{globalData.NewRecovered}}</li>
+                </ul>
+            </div>
+
+            <!-- total recovered section -->
+            <div class="card mb-4 mx-2 border-success"  style="width: 18rem;">
+                <div class="card-header text-success">
+                Total Global Recovery
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item text-success">{{globalData.TotalRecovered}}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class=" mb-10">
+        <center class="mt-10"><h2>Most common symptoms:</h2></center>
+        <h5 class="text-center font-weight-light">Seek immediate medical attention if you have serious symptoms. Always call before visiting your doctor or health facility.</h5>
+        <div class="commom-symptons d-flex flex-wrap justify-content-center">
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://img.freepik.com/free-vector/man-wearing-medical-mask-having-fever_23-2148504356.jpg?size=338&ext=jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Fever</p>
+                </div>
+            </div>
+
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv3jYsl-gNMe1IShCWq4j7AawoGOgZ0EP31g&usqp=CAU" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Dry Cough</p>
+                </div>
+            </div>
+
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://img.freepik.com/free-vector/businessman-sad-tired-disappointed-concept-vector-flat-illustration_76775-17.jpg?size=338&ext=jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Tiredness</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="mb-10">
+        <center class="mt-10"><h2>Less common symptoms:</h2></center>
+        <h5 class="text-center font-weight-light">People with mild symptoms who are otherwise healthy should manage their symptoms at home</h5>
+        <div class="commom-symptons d-flex flex-wrap justify-content-center">
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://cdn5.vectorstock.com/i/thumb-large/47/24/cold-symptom-man-suffering-from-slight-body-aches-vector-32644724.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Aches and Pains</p>
+                </div>
+            </div>
+
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://thumbs.dreamstime.com/b/sad-man-pain-throat-symptom-flu-virus-infection-guy-sore-flat-vector-illustration-136635935.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Sore Throat</p>
+                </div>
+            </div>
+
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://cdn5.vectorstock.com/i/thumb-large/85/54/young-man-sitting-toilet-seat-with-diarrhea-vector-17288554.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Diarrhoea</p>
+                </div>
+            </div>
+
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYlsAs7lanVRH78hTQbf-BxKZGD63Bz_awJh95HTR821CIWsR6cIrQd-hIScYzUbfUjrA&usqp=CAU" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Conjunctivitis</p>
+                </div>
+            </div>
+
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://img.freepik.com/free-vector/office-worker-with-headache-touching-his-head_185803-89.jpg?size=626&ext=jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Headache</p>
+                </div>
+            </div>
+
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://www.hopkinsmedicine.org/-/media/project/jhm/icons/coronavirus/no-taste.ashx?la=en&hash=87DCDA689442BD2B3CD2549026A72F7A61D06594" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Loss of Taste or Smell</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="mb-10">
+        <center class="mt-10"><h2>Most common symptoms:</h2></center>
+        <h5 class="text-center font-weight-light">On average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days.</h5>
+        <div class="commom-symptons d-flex flex-wrap justify-content-center">
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://www.hopkinsmedicine.org/-/media/project/jhm/icons/coronavirus/breathing-difficulty.ashx?h=262&la=en&w=265&hash=1F9872C04B8EB4791C76F0352932516B210000E5" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Difficulty Breathing or Shortness of Breath</p>
+                </div>
+            </div>
+
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://thumbs.dreamstime.com/b/man-sick-chest-pain-covid-symptom-vector-illustration-design-man-sick-chest-pain-covid-symptom-179088524.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Chest Pain or Pressure</p>
+                </div>
+            </div>
+
+            <div class="card m-4" style="width: 18rem;">
+                <img src="data:image/png;base64,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" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text text-center">Loss of Speech or Movement</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock body %}
+
+
+
+{% block js %}
+ 
+{% endblock js %}
