@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} Bed Tracker {% endblock title %}
 
 {% block css %}
@@ -17,12 +18,17 @@
         .card-img-top{
             width: 286px;
             height: 286px;
-            object-fit: contain;
+            object-fit: cover;
         }
 
 
     {% endblock css %}
 {% block body %}
+<div class="alert alert-danger" role="alert">
+  <marquee behavior="" direction="">
+      Note: The helplines are provided by the government of India
+  </marquee>
+</div>
 <br>
 <div class="container">
   <div class="row">
@@ -30,60 +36,59 @@
       <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for state or districts">
     </div>
   </div>
-  <div class="d-flex flex-wrap" id="myItems">
-      <div class="card m-2" style="width: 18rem;">
-            <img src="https://img.saurenergy.com/2017/04/Chhattisgarh-Solar-Energy-Policy.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title text-center">Chhattisgarh </h5>
-              <a href="/chhattisgarh" class="btn btn-primary w-100">Check  Availability</a>
-            </div>
-        </div>
-
-            <div class="card m-2" style="width: 18rem;">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzrC6wxP8qaq9PMykk1Ci32rXWa-AYfnh8WA&usqp=CAU" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title text-center">Navi Mumbai</h5>
-              <a href="/naviMumbai" class="btn btn-primary w-100">Check  Availability</a>
-            </div>
-        </div>
-
-            <div class="card m-2" style="width: 18rem;">
-            <img src="https://i.pinimg.com/originals/63/46/17/63461720d34dd04c9c41df9e141989bc.png" class="card-img-top" alt="...">
+  <div class="d-flex flex-wrap justify-content-center" id="myItems">
+          <div class="card m-2" style="width: 18rem;">
+            <img src="{% static '/bed/pune.png '%}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title text-center">Pune </h5>
               <a href="/pune" class="btn btn-primary w-100">Check  Availability</a>
             </div>
-        </div>
-      
-            <div class="card m-2" style="width: 18rem;">
-            <img src="https://lh3.googleusercontent.com/proxy/YAM3fwBtRL0el8Gx1yTwJmEoOJx9EzUziAAcCv5uSJvE-SsUWlaAwE3Ylj78Z17RO6nfCh69ySd2gjXSpyGRQkWetp7sC0GXN2RLRtGJ4EtEwS2WOTmHbPpe7Esi968koPfZhkesUUUz6Hf-4y2xhV2nxKgEfscK1-cZVLwXxoC-eyKEE3Q" class="card-img-top" alt="...">
+          </div>
+
+          <div class="card m-2" style="width: 18rem;">
+            <img src="{% static '/bed/vadodra.png '%}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-center">Uttar Pradesh</h5>
-              <a href="/uttarPradesh" class="btn btn-primary w-100">Check  Availability</a>
+              <h5 class="card-title text-center">Vadodara </h5>
+              <a href="/vadodara " class="btn btn-primary w-100">Check  Availability</a>
             </div>
-        </div>
-      
-            <div class="card m-2" style="width: 18rem;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Uttarakhand_Divisions_Map.png/450px-Uttarakhand_Divisions_Map.png" class="card-img-top" alt="...">
+          </div>
+
+          <div class="card m-2" style="width: 18rem;">
+            <img src="{% static '/bed/nagpur.jpg '%}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">Nagpur </h5>
+              <a href="/nagpur " class="btn btn-primary w-100">Check  Availability</a>
+            </div>
+          </div>   
+
+          <div class="card m-2" style="width: 18rem;">
+            <img src="{% static '/bed/uk.png'%}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title text-center">Uttarakhand</h5>
               <a href="/uttarakhand" class="btn btn-primary w-100">Check  Availability</a>
             </div>
-        </div>
-      
-            <div class="card m-2" style="width: 18rem;">
-            <img src="https://www.whatsoninnewdelhi.com/wp-content/uploads/2018/07/DelhiMap.jpg" class="card-img-top" alt="...">
+          </div>
+
+          <div class="card m-2" style="width: 18rem;">
+            <img src="{% static '/bed/karnataka.png'%}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-center">Delhi </h5>
-              <a href="/delhi " class="btn btn-primary w-100">Check  Availability</a>
+              <h5 class="card-title text-center">Karnataka  </h5>
+              <a href="/karnataka " class="btn btn-primary w-100">Check  Availability</a>
             </div>
-        </div>
-          
+          </div>
+      
+          <div class="card m-2" style="width: 18rem;">
+            <img src="{% static '/bed/up.jpg'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">Uttar Pradesh</h5>
+              <a href="/uttarPradesh" class="btn btn-primary w-100">Check  Availability</a>
+            </div>
+          </div>
    
   </div>
 </div>
 
-
+<br><br>
 
 {% endblock body %}
 

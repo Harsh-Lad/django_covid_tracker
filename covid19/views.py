@@ -51,41 +51,54 @@ def helplines(request):
 def bedAvailability(request):
     return render(request,'bedAvailability.html')
 
-def chhattisgarh(request):
-    url = "https://cg.nic.in/health/covid19/RTPBedAvailable.aspx"
+def karnataka(request):
+    url = "https://bbmpgov.com/chbms/"
     r = requests.get(url)
     soup = BeautifulSoup(r.content, 'html.parser')
-    print(soup.prettify())
-    return HttpResponse('chhattisgarh')
+    table = soup.find(id ='D')
+    table = table.prettify()
+    new = "new variableeeeeeeeeeeeeeee"
+    return HttpResponse(table)
 
-def naviMumbai(request):
-    url = requests.get("https://nmmchealthfacilities.com/HospitalInfo/showhospitalist")
-    soup = BeautifulSoup(url.content, 'html.parser')
-    divSocial = soup.find_all("h4")
-    divVacant = soup.find_all("div",class_ ="bg-gradient-success")
-    vacList = []
-    availBed = []
-    i,j = 1,0
-    while i < 44 and j < 43:
-        mainTxt = divSocial[i].find('b')
-        vacTxt = divVacant[j].find('b')
-        vacItem = mainTxt.find(text=True)
-        vacBed = vacTxt.find(text=True)
-        vacList.append(vacItem)
-        availBed.append(vacBed)
-        i += 1 
-        j += 1
-    param = {'hospital':vacList,'bed':availBed}
-    return render(request,'naviMumbai.html', param)
+
+def vadodara(request):
+    url = "https://vmc.gov.in/Covid19VadodaraApp/HospitalBedsDetails.aspx?tid=13"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, 'html.parser')
+    table = soup.find_all(class_ = 'col-lg-12')[1]
+    """ table = table.prettify() """
+    return HttpResponse(table)
 
 def pune(request):
-    return HttpResponse('pune')
+    url = "https://www.divcommpunecovid.com/ccsbeddashboard/hsr"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, 'html.parser')
+    table = soup.find(id='tablegrid')
+    table = table.prettify()
+    return HttpResponse(table)
 
 def uttarPradesh(request):
+    url = "http://dgmhup.gov.in/en/CovidReport"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, 'html.parser')
+    table = soup.find(id ='MainContent_EN_grd_data')
+    table = table.prettify()
+    return HttpResponse(table)
     return HttpResponse('uttarPradesh')
 
 def uttarakhand(request):
-    return HttpResponse('uttarakhand')
+    url = "https://covid19.uk.gov.in/bedssummary.aspx"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, 'html.parser')
+    table = soup.find(id = 'grdhospitalbeds')
+    table = table.prettify()
+    return HttpResponse(table)
 
-def delhi(request):
-    return HttpResponse('delhi')
+def nagpur(request):
+    url = "http://nsscdcl.org/covidbeds/AvailableHospitals.jsp"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, 'html.parser')
+    table = soup.find(id ='example1')
+    table = table.prettify()
+    print(table)
+    return HttpResponse(table)

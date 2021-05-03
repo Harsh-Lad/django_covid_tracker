@@ -2,17 +2,30 @@
 {% block title %} Covid Helpline {% endblock title %}
 {% block css %}
 
-    .searchField{
-        padding:10px;
-        width:97vw;
+
+    .searchField input{
+      width: 97vw;
+      margin: auto;
+      padding:10px;
+
     }
+
+    .searchField:focus{
+    border:none
+    }
+
 
 {% endblock css %}
 {% block body %}
+<div class="alert alert-danger" role="alert">
+  <marquee behavior="" direction="">
+      Note: The data is directly provided from the hospitals on the government sites. The data might not look good but is accurate
+  </marquee>
+</div>
   <br>
   <div class="container">
     <div class="searchField col-12 d-flex justify-content-center" >
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Countries..">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for states..">
     </div>        
     <table class="table table-striped table-hover table-responsive" id="myTable">
         <thead>
