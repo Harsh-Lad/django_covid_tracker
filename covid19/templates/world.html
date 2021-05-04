@@ -27,66 +27,66 @@
     {% block body %}
 
   <div class="container">
-    <div class="container-fluid my-4 d-flex flex-wrap justify-content-center" >
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              New Cases Globally
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.NewConfirmed}}</li>
-            </ul>
-        </div>
-                
-        <!-- Total Global Comfirmed section -->
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              Total Global Cases
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.TotalConfirmed}}</li>
-            </ul>
-        </div>
-                
-        <!--New Global Deaths section -->
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              New Global Deaths
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.NewDeaths}}</li>
-            </ul>
-        </div>
-        
-        <!-- Total Global Deaths section -->
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              Total Global Deaths
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.TotalDeaths}}</li>
-            </ul>
-        </div>
+      <div class="container-fluid my-4 d-flex flex-wrap justify-content-center" >
+      <div class="card mb-4 mx-2 border-danger"  style="width: 18rem;">
+          <div class="card-header text-danger">
+          New Cases Globally
+          </div>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item text-danger">{{globalData.NewConfirmed}}</li>
+          </ul>
+      </div>
+              
+      <!-- Total Global Comfirmed section -->
+      <div class="card mb-4 mx-2 border-danger"  style="width: 18rem;">
+          <div class="card-header text-danger">
+          Total Global Cases
+          </div>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item text-danger">{{globalData.TotalConfirmed}}</li>
+          </ul>
+      </div>
+              
+      <!--New Global Deaths section -->
+      <div class="card mb-4 mx-2 border-warning"  style="width: 18rem;">
+          <div class="card-header text-warning">
+          New Global Deaths
+          </div>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item text-warning">{{globalData.NewDeaths}}</li>
+          </ul>
+      </div>
+      
+      <!-- Total Global Deaths section -->
+      <div class="card mb-4 mx-2 border-warning"  style="width: 18rem;">
+          <div class="card-header text-warning">
+          Total Global Deaths
+          </div>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item text-warning">{{globalData.TotalDeaths}}</li>
+          </ul>
+      </div>
 
-        <!-- New recovered section -->
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              Newly Recovered Globally
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.NewRecovered}}</li>
-            </ul>
-        </div>
+      <!-- New recovered section -->
+      <div class="card mb-4 mx-2 border-success"  style="width: 18rem;">
+          <div class="card-header text-success">
+          Newly Recovered Globally
+          </div>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item text-success">{{globalData.NewRecovered}}</li>
+          </ul>
+      </div>
 
-        <!-- total recovered section -->
-        <div class="card my-4 mx-2"  style="width: 18rem;">
-            <div class="card-header">
-              Total Global Recovery
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{globalData.TotalRecovered}}</li>
-            </ul>
-        </div>
-
+      <!-- total recovered section -->
+      <div class="card mb-4 mx-2 border-success"  style="width: 18rem;">
+          <div class="card-header text-success">
+          Total Global Recovery
+          </div>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item text-success">{{globalData.TotalRecovered}}</li>
+          </ul>
+      </div>
+      </div>
 
         <!-- countries section starts here -->
         <div class="searchField col-12 d-flex justify-content-center" >
@@ -115,7 +115,7 @@
             </tbody>
           </table>
 
-    </div>
+    
   </div>
 
 {% endblock body %}
